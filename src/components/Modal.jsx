@@ -20,9 +20,9 @@ const Modal = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <button className="modal-close" onClick={onClose}>
+    <div className='modal-overlay'>
+      <div className='modal'>
+        <button className='modal-close' onClick={onClose}>
         {closeIcon}
         </button>
         <h3>Comparte el enlace con tus contactos</h3>
