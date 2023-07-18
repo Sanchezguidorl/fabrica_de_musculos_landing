@@ -2,7 +2,8 @@ import '../styles/ContainerApp.css'
 import { React, useState } from 'react';
 import LinkButton from './LinkButton';
 import Modal from './Modal';
-
+import icon1 from '../assets/icon.jpg'
+import icon2 from '../assets/icon.png'
 function ContainerApp() {
 
    const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +29,7 @@ function ContainerApp() {
             </button>
          </header>
          <div className='content-container'>
-            <img src='\assets\icon.jpg' className='trainer-image' alt='Foto del entrenador' />
+            <img src={icon1} className='trainer-image' alt='Foto del entrenador' />
             <p>@Fabrica_de_musculos</p>
          </div>
          <div className='allLinks-container'>
@@ -40,7 +41,7 @@ function ContainerApp() {
          <div>
       <Modal isOpen={modalOpen} onClose={openModal}/>
       <div className='icon-footer'>
-         <img src='\assets\icon.png' alt='Logo del Gymnasio' width='60'/>
+         <img src={icon2} alt='Logo del Gymnasio' width='60'/>
       </div>
     </div>
       </div>
