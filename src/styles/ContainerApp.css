@@ -1,0 +1,57 @@
+.container-app{
+    width: 100%;
+    max-width: 680px;
+    max-height: 100%;
+    padding: 20px 10px;
+    margin: 20px auto;
+}
+
+.share-header {
+display: flex;
+justify-content: end;
+}
+.share-header button{
+    cursor: pointer;
+    border: none;
+    display: flex;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #F7D643;
+    color: #484642;
+    transition: .5s;
+}
+.share-header button:hover{
+    transform: scale(1.1);
+}
+.content-container{
+max-width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.trainer-image{
+width: 140px;
+padding: 30px 0;
+border-radius: 50%;
+}
+
+.content-container p{
+    color: #F7D643;
+    font-size: 24px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+}
+
+.allLinks-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.icon-footer{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+}
