@@ -6,7 +6,7 @@ import { faEnvelope, faChevronRight, faCircleXmark} from '@fortawesome/free-soli
 import { faFacebook, faFacebookMessenger, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons' 
 
 const Modal = ({ isOpen, onClose }) => {
-      const link='https://localhost/';
+      const link='www.instagram.com/fabricademusculos.pfo/';
   const facebookIcon=<FontAwesomeIcon icon={faFacebook} />;
   const messengerIcon= <FontAwesomeIcon icon={faFacebookMessenger} />;
   const whatsappIcon= <FontAwesomeIcon icon={faWhatsapp} />;
@@ -25,7 +25,7 @@ const Modal = ({ isOpen, onClose }) => {
         <button className='modal-close' onClick={onClose}>
         {closeIcon}
         </button>
-        <h3>Comparte el enlace con tus contactos</h3>
+        <h3 className='prevent-select'>Comparte el enlace con tus contactos</h3>
           <a href={link} target='blank'>
             <div className='share-icon-container prevent-select'>
               <i>{facebookIcon}</i>

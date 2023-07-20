@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo oscuro semi-transparente */
     display: flex;
     justify-content: center;
     align-items:flex-start;
@@ -14,10 +14,13 @@
   /* Estilos para el contenido del modal */
   .modal {
     color: #F7D643;
-    background-color: #484642;
-    padding: 30px 20px;
+   /* background-color: #484642; */
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.882)), url('../assets/bgmodal.jpg');
+   background-size: cover;
+   background-position: center;
+    padding: 60px 16px 80px 16px;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px 10px rgba(72, 72, 72, 0.642);
     margin: 40px 10px;
     max-width: 500px;
     position: relative;
@@ -33,7 +36,7 @@
     font-weight: bolder;
     border: none;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 25px;
     color: #888888;
     cursor: pointer;
   transition: .4s;
@@ -49,14 +52,16 @@
   .modal a{
     color: #F7D643;
     font-size: 20px;
+    margin-top: 10px;
     padding: 16px 20px;
-    border-radius: 10px;
     width: 300px;
     transition: .5s;
+    border-bottom: 1px #F7D643 solid;
   }
 
   .modal a:hover{
-    background-color: #202020;
+    background-color: #0000008d;
+    border-radius: 10px;
   }
 
   .share-icon-container{
@@ -77,7 +82,7 @@
   margin: 16px auto;
   background-color: rgba(161, 161, 161, 0.235);
   border-radius: 10px;
-  border: 1px #888888 solid;
+  border: 1px #F7D643 solid;
   width: 300px;
   display: flex;
   overflow: hidden;
@@ -85,18 +90,19 @@
 
 .link-copy p{
   color: #3c3c3c;
-  background-color: #ffffff;
-  padding: 16px 20px;
+  background-color: #F7D643;
+  padding: 16px 16px;
 }
 
 .link-copy span{
-  padding: 16px 20px;
+  padding: 16px 0px;
+  font-size: 12px;
   border-left: 1px solid #444444;
-  color: #F2F3F2;
+  color: #F7D643;
 }
 
 h3{
-  font-weight: 100;
+  font-weight: 400;
   max-width: 270px;
   font-size: 25px;
   text-align: center;

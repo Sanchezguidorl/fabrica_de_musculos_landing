@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function LinkButton({openModal, message, link}) {
 
     return (
-        <div className='container-link'>
+        <div className='container-link prevent-select'>
             <a className='link' href={link} target='blank'>
                 <p>{message}</p>
                 <button onClick={openModal}>

@@ -6,8 +6,9 @@
 .App{
 width: 100%;
 height: 920px;
-background: rgb(196,196,196);
-background: linear-gradient(180deg, rgba(196,196,196,1) 0%, rgba(136,135,133,1) 51%, rgba(72,70,66,1) 90%);
+background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.882)),
+url('./assets/bgimage-head.jpg');
+background-position: center;
 display: flex;
 justify-content: center;
 font-family: 'Roboto', sans-serif;

@@ -2,8 +2,8 @@ import '../styles/ContainerApp.css'
 import { React, useState } from 'react';
 import LinkButton from './LinkButton';
 import Modal from './Modal';
-import icon1 from '../assets/icon.jpg'
-import icon2 from '../assets/icon.png'
+import icon1 from '../assets/logo.png'
+import icon2 from '../assets/logofm.png'
 function ContainerApp() {
 
    const [modalOpen, setModalOpen] = useState(false);
@@ -14,9 +14,9 @@ function ContainerApp() {
    };
 
    const anchorMessages=[
-      ['Solicita un plan de ejercisios y nutrición','https://api.whatsapp.com/send?phone=3517458202'],
+      ['Solicita un plan de ejercicios y nutrición','https://api.whatsapp.com/send?phone=5493513172080'],
       ['Conoce nuestros productos y equipamiento para entrenamiento', 'https://guiafitness.com/'],
-      ['Mantente al día con las actividades grupales que proponemos', 'https://www.facebook.com/GuiaFitness/'],
+      ['Mantente al día con las actividades grupales que proponemos', 'https://www.instagram.com/fabricademusculos.pfo/'],
       ['Ve nuestras actividades en tiempo real', 'https://www.instagram.com/guiafitness_com/'],
       ['¿Quieres formar parte del equipo?', 'https://ar.linkedin.com/']
    ]
@@ -30,7 +30,7 @@ function ContainerApp() {
          </header>
          <div className='content-container'>
             <img src={icon1} className='trainer-image' alt='Foto del entrenador' />
-            <p>@Fabrica_de_musculos</p>
+            <p>@fabricademusculos.pfo</p>
          </div>
          <div className='allLinks-container'>
 
