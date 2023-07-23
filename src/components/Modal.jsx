@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import '../styles/Modal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faChevronRight, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faFacebookMessenger, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons' 
+import { faFacebook, faFacebookMessenger, faTelegram, faWhatsapp } from '@fortawesome/free-brands-svg-icons' 
+import CopyButton from './CopyButton';
+import { EmailShareButton, FacebookMessengerShareButton, FacebookShareButton, TelegramShareButton, WhatsappShareButton } from 'react-share';
 
 const Modal = ({ isOpen, onClose }) => {
-      const link='www.instagram.com/fabricademusculos.pfo/';
-  const facebookIcon=<FontAwesomeIcon icon={faFacebook} />;
-  const messengerIcon= <FontAwesomeIcon icon={faFacebookMessenger} />;
-  const whatsappIcon= <FontAwesomeIcon icon={faWhatsapp} />;
-  const instagramIcon= <FontAwesomeIcon icon={faInstagram} />;
-  const email= <FontAwesomeIcon icon={faEnvelope} />;
-  const arrowIcon= <FontAwesomeIcon icon={faChevronRight} />;
-  const closeIcon= <FontAwesomeIcon icon={faCircleXmark} />;
+  const link = 'instagram.com/fabricademusculos.pfo/';
+  const arrowIcon = <FontAwesomeIcon icon={faChevronRight} />;
+  const closeIcon = <FontAwesomeIcon icon={faCircleXmark} />;
 
+  // Si el modal no está abierto, no renderizar nada
   if (!isOpen) {
     return null;
   }
@@ -22,52 +20,77 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div className='modal-overlay'>
       <div className='modal'>
+        {/* Botón para cerrar el modal */}
         <button className='modal-close' onClick={onClose}>
-        {closeIcon}
+          {closeIcon}
         </button>
+        {/* Título del modal */}
         <h3 className='prevent-select'>Comparte el enlace con tus contactos</h3>
-          <a href={link} target='blank'>
+        {/* Iconos y enlaces para compartir en redes sociales */}
+        <FacebookShareButton url={link}>
+
             <div className='share-icon-container prevent-select'>
-              <i>{facebookIcon}</i>
+              <span className='social-icon'>
+              <FontAwesomeIcon icon={faFacebook} />
+              </span>
               <p>Compartir en Facebook</p>
-              <i>{arrowIcon}</i>
+              <span className='arrow-icon'>{arrowIcon}</span>
             </div>
-          </a>
-          <a href={link} target='blank'>
+
+          </FacebookShareButton>
+        <WhatsappShareButton url={link}>
+
             <div className='share-icon-container prevent-select'>
-              <i>{whatsappIcon}</i>
+              <span className='social-icon'>
+              <FontAwesomeIcon icon={faWhatsapp} />
+              </span>
               <p>Compartir en Whatsapp</p>
-              <i>{arrowIcon}</i>
+              <span className='arrow-icon'>{arrowIcon}</span>
             </div>
-          </a>
-          <a href={link} target='blank'>
+
+          </WhatsappShareButton >
+        <TelegramShareButton url={link}>
             <div className='share-icon-container prevent-select'>
-              <i>{messengerIcon}</i>
+              <span className='social-icon'>
+              <FontAwesomeIcon icon={faTelegram} />
+              </span>
+              <p>Compartir en Telegram</p>
+              <span className='arrow-icon'>{arrowIcon}</span>
+            </div>
+          </TelegramShareButton>
+        <FacebookMessengerShareButton url={link}>
+
+            <div className='share-icon-container prevent-select'>
+              <span className='social-icon'>
+              <FontAwesomeIcon icon={faFacebookMessenger} />
+              </span>
               <p>Compartir en Messenger</p>
-              <i>{arrowIcon}</i>
+              <span className='arrow-icon'>{arrowIcon}</span>
             </div>
-          </a>
-          <a href={link} target='blank'>
+
+          </FacebookMessengerShareButton>
+        <EmailShareButton url={link}>
+          <a  href='' target='blank'>
             <div className='share-icon-container prevent-select'>
-              <i>{instagramIcon}</i>
-              <p>Compartir en Instagram</p>
-              <i>{arrowIcon}</i>
-            </div>
-          </a>
-          <a href={link} target='blank'>
-            <div className='share-icon-container prevent-select'>
-              <i>{email}</i>
+              <span className='social-icon'>
+              <FontAwesomeIcon icon={faEnvelope} />
+              </span>
               <p>Compartir por Email</p>
-              <i>{arrowIcon}</i>
+              <span className='arrow-icon'>{arrowIcon}</span>
             </div>
           </a>
-          <div className='link-copy'>
-          <p className='prevent-select'>Enlace</p> <span>{link}</span>
-      </div>
+          </EmailShareButton>
+        {/* Mostrar el enlace */}
+        <div id='link-copy'>
+        <CopyButton/>
+          <span>{link}</span>
+        </div>
       </div>
     </div>
   );
 };
+
+// PropTypes y exportación siguen sin cambios.
 
 Modal.propTypes = {
   isOpen: PropTypes.bool,
