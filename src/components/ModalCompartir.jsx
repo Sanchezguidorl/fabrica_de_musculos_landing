@@ -7,7 +7,7 @@ import { faFacebook, faFacebookMessenger, faTelegram, faWhatsapp } from '@fortaw
 import CopyButton from './CopyButton';
 import { EmailShareButton, FacebookMessengerShareButton, FacebookShareButton, TelegramShareButton, WhatsappShareButton } from 'react-share';
 
-const Modal = ({ isOpen, onClose }) => {
+const ModalCompartir = ({ isOpen, onClose }) => {
   const link = 'instagram.com/fabricademusculos.pfo/';
   const arrowIcon = <FontAwesomeIcon icon={faChevronRight} />;
   const closeIcon = <FontAwesomeIcon icon={faCircleXmark} />;
@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose }) => {
 
   return (
     <div className='modal-overlay'>
-      <div className='modal'>
+      <div className='modal-compartir'>
         {/* Botón para cerrar el modal */}
         <button className='modal-close' onClick={onClose}>
           {closeIcon}
@@ -90,11 +90,9 @@ const Modal = ({ isOpen, onClose }) => {
   );
 };
 
-// PropTypes y exportación siguen sin cambios.
-
-Modal.propTypes = {
+ModalCompartir.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func
 }
 
-export default Modal;
+export default ModalCompartir;

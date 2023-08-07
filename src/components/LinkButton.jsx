@@ -3,12 +3,12 @@ import React from 'react';
 import '../styles/LinkButton.css'; // Importar estilos CSS del componente
 import PropTypes from 'prop-types';
 
-function LinkButton({ openModal, message, link }) {
+function LinkButton({ openModal, message, link, openCarrusel }) {
 
   return (
     <div className='container-link prevent-select'>
       {/* Enlace con mensaje */}
-      <a className='link' href={link} target='blank'>
+      <a className='link' onClick={openCarrusel} href={link} target='blank'>
         <p>{message}</p>
         {/* Botón con ícono para abrir el Modal */}
         <button onClick={openModal}>
@@ -23,7 +23,8 @@ function LinkButton({ openModal, message, link }) {
 LinkButton.propTypes = {
   openModal: PropTypes.func,
   message: PropTypes.string,
-  link: PropTypes.string
+  link: PropTypes.string,
+  openCarrusel: PropTypes.func
 };
 
 export default LinkButton;
