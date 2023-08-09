@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/Modal.css";
+import "../styles/Load.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -76,6 +77,7 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
       setOfferIndex((index) => index - 1);
     }
   };
+
   return (
     <div className="modal-overlay">
       <div className="modal-carrusel">
@@ -96,19 +98,15 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
           <button className="modal-close" onClick={onClose}>
             {closeIcon}
           </button>
-          <Offer
-            key={offers[offerIndex].id}
-            slide={offers[offerIndex].img}
-            plan={offers[offerIndex].plan}
-            message={offers[offerIndex].message}
-          />
-          <a
-            target="blank"
-            href={`https://api.whatsapp.com/send?phone=3517458202&text=${offers[offerIndex].message}`}
-            className="button-offer"
-          >
-            Me interesa
-          </a>
+{offers.length > 0 &&
+          offers.map((offer, index)=> <Offer
+            key={offer.id}
+            slide={offer.img}
+            plan={offer.plan}
+            message={offer.message}
+            index={index===offerIndex}
+          />)
+          }
         </div>
       </div>
     </div>
