@@ -1,0 +1,29 @@
+#PlusButton{
+    display: flex;
+    align-items: center;
+}
+
+.optionsMenu{
+    color: #000;
+    border-radius: 50%;
+    opacity:0;
+    padding: 14px;
+    margin-left: 12px;
+    background-color:#F7D643;
+    position: relative;
+}
+
+#PlusButton:hover .optionsMenu{
+animation: appearFromRight 1s forwards;
+}
+
+@keyframes appearFromRight {
+    0%{
+        opacity: 0;
+        left:30%;
+    }
+    100%{
+        opacity: 1;
+        left:0%;
+    }
+}

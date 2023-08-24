@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/Modal.css";
 import "../styles/Load.css";
@@ -8,54 +8,30 @@ import {
   faChevronRight,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import slide1 from "../assets/slides/slide-1.jpg";
-import slide2 from "../assets/slides/slide-2.jpg";
-import slide3 from "../assets/slides/slide-3.jpg";
-import slide4 from "../assets/slides/slide-4.jpg";
-import slide5 from "../assets/slides/slide-5.jpg";
-import slide6 from "../assets/slides/slide-6.jpg";
 import Offer from "./Offer";
+import { getImages } from "./customHooks";
 const ModalCarrusel = ({ isOpen, onClose }) => {
   const closeIcon = <FontAwesomeIcon icon={faCircleXmark} />;
   const [offerIndex, setOfferIndex] = useState(0);
-  const offers = [
-    {
-      id: 1,
-      img: slide1,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-    {
-      id: 2,
-      img: slide2,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-    {
-      id: 3,
-      img: slide3,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-    {
-      id: 4,
-      img: slide4,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-    {
-      id: 5,
-      img: slide5,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-    {
-      id: 6,
-      img: slide6,
-      plan: "nombre del plan",
-      message: "Texto a enviar para pedir la promoción",
-    },
-  ];
+  const [offers, setOffers]= useState(null);
+
+
+  useEffect(()=>{
+    const fetchOffers= async()=>{
+      try {
+        const data= await getImages();
+        if(getImages){
+          setOffers(data);
+        console.log(data)
+        }
+      } catch (error) {
+        console.log("Error al obtener ofertas")
+      }
+    }
+  if(isOpen){
+    fetchOffers()
+  }
+  },[isOpen])
 
   // Si el modal no está abierto, no renderizar nada
   if (!isOpen) {
@@ -98,13 +74,12 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
           <button className="modal-close" onClick={onClose}>
             {closeIcon}
           </button>
-{offers.length > 0 &&
+{offers &&
           offers.map((offer, index)=> <Offer
-            key={offer.id}
-            slide={offer.img}
-            plan={offer.plan}
-            message={offer.message}
+            key={offer._id}
+            slide={offer.path}
             index={index===offerIndex}
+            plan={offer.name}
           />)
           }
         </div>

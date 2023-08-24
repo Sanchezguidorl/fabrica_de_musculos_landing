@@ -13,12 +13,18 @@ justify-content: end;
 .share-header button{
     cursor: pointer;
     border: none;
+    padding: 14px;
+    border-radius: 60%;
     display: flex;
-    padding: 12px;
-    border-radius: 50%;
+    justify-content: center;
     background-color: #F7D643;
     color: #484642;
     transition: .5s;
+    margin-left: 16px;
+}
+.share-header button svg{
+width: 16px;
+height: 16px;
 }
 .share-header button:hover{
     transform: scale(1.1);
