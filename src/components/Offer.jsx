@@ -36,7 +36,7 @@ function Offer({ slide, plan, message, index}) {
 Offer.propTypes = {
   slide: PropTypes.string.isRequired,
   plan: PropTypes.string.isRequired,
-  message: PropTypes.string,
+  message: PropTypes.string.isRequired,
   index: PropTypes.bool.isRequired,
 };
 

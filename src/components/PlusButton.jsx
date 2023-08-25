@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/PlusButton.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faPencil, faPlus, faTags, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faImages, faTags } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function PlusButton({ handleHoverOpen, handleHoverClose }) {
   return (
@@ -11,15 +11,15 @@ function PlusButton({ handleHoverOpen, handleHoverClose }) {
       onMouseOver={handleHoverOpen}
       onMouseLeave={handleHoverClose}
     >
-      <Link className="optionsMenu" >
+      <Link to={'/buttons'} className="optionsMenu">
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faTags} />
       </Link>
-      <Link to={'/images-carrousel'} className="optionsMenu"   >
+      <Link to={"/images-carrousel"} className="optionsMenu">
         {/* Ícono para el botón */}
-        <FontAwesomeIcon icon={faPlus} />
+        <FontAwesomeIcon icon={faImages} />
       </Link>
-      <Link to={'/'} className="optionsMenu"   >
+      <Link to={"/"} className="optionsMenu">
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faHouse} />
       </Link>

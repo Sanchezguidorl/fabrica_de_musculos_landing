@@ -31,3 +31,31 @@ export const createImage= async(imageData)=>{
         return false;
     }
 }
+
+
+export const getButtons= async()=>{
+    try {
+        const buttons= await axios.get('http://localhost:5000/buttons');
+        return buttons.data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const deleteButton= async(id)=>{
+    try {
+        const deleteButton= await axios.delete(`http://localhost:5000/buttons/delete/${id}`);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+export const createButton= async(buttonData)=>{
+    try {
+        const newButton= await axios.post(`http://localhost:5000/buttons/add`,buttonData);
+        return true;
+    } catch (error) {
+       throw error;
+    }
+}

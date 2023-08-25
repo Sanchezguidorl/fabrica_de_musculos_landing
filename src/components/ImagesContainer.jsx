@@ -11,6 +11,7 @@ function ImagesContainer() {
   const [formData, setFormData] = useState({
     name: "",
     image: null,
+    message: "",
   });
   const [error, setError] = useState(false);
 
@@ -42,10 +43,11 @@ function ImagesContainer() {
       const data = new FormData();
       data.append("name", formData.name);
       data.append("image", formData.image);
+      data.append("message", formData.message);
 
       saveImage(data);
       setMiniature(null);
-      setFormData({ name: "", image: null });
+      setFormData({ name: "", image: null, message: "" });
     }
   }, [formLoaded]);
 
@@ -90,24 +92,32 @@ function ImagesContainer() {
     }));
   };
 
+  const handleChangeMessage = (event) => {
+    const newMessage = event.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      message: newMessage,
+    }));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setFormLoaded(true);
   };
 
-  const deleteImageById=(id)=>{
-const deleteNow=async()=>{
-  try {
-    const imageDeleted=await deleteImage(id);
-    if(imageDeleted){
-      fetchData();
-    }
-  } catch (error) {
-    console.log('Error al eliminar imagen')
-  }
-}
-deleteNow(); 
-}
+  const deleteImageById = (id) => {
+    const deleteNow = async () => {
+      try {
+        const imageDeleted = await deleteImage(id);
+        if (imageDeleted) {
+          fetchData();
+        }
+      } catch (error) {
+        console.log("Error al eliminar imagen");
+      }
+    };
+    deleteNow();
+  };
 
   return (
     <div id="Images-container">
@@ -136,6 +146,15 @@ deleteNow();
               required
               value={formData.name}
             />
+            <textarea
+              className="name-image-input"
+              name="message"
+              placeholder="Agrega una plantilla de mensaje de whatsapp"
+              onChange={handleChangeMessage}
+              required
+              value={formData.message}
+            ></textarea>
+
             <div className="form-div-images">
               <input
                 type="file"
@@ -155,12 +174,15 @@ deleteNow();
           images.map((image) => (
             <div key={image._id} className="image-gallery">
               <img
-              src={`../../${image.path.replace(/\\/g, "/")}`}
-              alt={image.name}
-            />
-            <i className="deleteButton" onClick={()=>deleteImageById(image._id)}>
-            <FontAwesomeIcon icon={faTrash} />
-            </i>
+                src={`../../${image.path.replace(/\\/g, "/")}`}
+                alt={image.name}
+              />
+              <i
+                className="deleteButton"
+                onClick={() => deleteImageById(image._id)}
+              >
+                <FontAwesomeIcon icon={faTrash} />
+              </i>
             </div>
           ))}
       </section>

@@ -13,16 +13,16 @@ try {
 };
 
 export const createImagen = async (req, res) => {
-    const { name } = req.body;
+    const { name, message } = req.body;
     let imagePath = req.file.path;
 
-if(!name || !imagePath){
+if(!name || !imagePath || !message){
  
     return res.status(400).json({ success: false, message: 'Image creation failed, fields are empty'});
 }
 
 try {
-        const newImage = new Imagen({ name: name, path: imagePath });
+        const newImage = new Imagen({ name: name, path: imagePath, message: message });
         const image = await newImage.save();
         
         return res.status(201).json({ success: true, message: 'Image created successfully', image: image });

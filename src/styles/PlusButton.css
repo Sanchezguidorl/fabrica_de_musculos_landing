@@ -8,9 +8,18 @@
     border-radius: 50%;
     opacity:0;
     padding: 14px;
-    margin-left: 12px;
+    margin-left: 16px;
     background-color:#F7D643;
     position: relative;
+}
+
+.optionsMenu svg{
+    width: 16px;
+    height: 16px;
+}
+
+.optionsMenu:active{
+background-color: #c9ae35;
 }
 
 #PlusButton:hover .optionsMenu{

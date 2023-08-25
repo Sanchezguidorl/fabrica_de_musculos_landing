@@ -9,6 +9,10 @@ const imagenSchema= new Schema({
         type:String,
         unique:true,
         required:true
+    },
+    message:{
+        type:String,
+        require: true
     }
 });
 

@@ -1,0 +1,84 @@
+#Buttons-form-container{
+    margin-top: 30px;
+    padding: 24px 16px;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.301);
+    border: 1px solid #F7D643;
+    max-height: 650px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.submit-button-input{
+    width: 100%;
+    margin-top: 24px ;
+    padding: 8px;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: #ceb02c;
+    transition: .7s;
+}
+
+.submit-button-input:hover{
+    background-color: #F7D643;
+}
+
+.input-button{
+    background-color: rgba(0, 0, 0, 0.226);
+    margin-top: 16px;
+    color: #F7D643;
+    text-align: center;
+    border: 1px solid #F7D643;
+    padding: 5px;
+}
+
+.buttons-section{
+    margin-top: 40px;
+    height:300px;
+}
+
+.loading-buttons-section{
+    background-color: rgba(39, 39, 39, 0.35);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error-buttons-section{
+    background-color: rgba(39, 39, 39, 0.493);
+    height: 100%;
+    display: flex;
+    color :rgb(190, 3, 3);
+    align-items: center;
+    justify-content: center;
+}
+
+.button-data{
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #443e2148;
+    border-radius: 5px;
+    color: #F7D643;
+    padding: 8px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.button-data svg{
+position: absolute;
+right: 5%;
+}
+
+.button-data svg:hover{
+cursor: pointer;
+filter: brightness(1.2);
+}
+
+.error-create{
+    background-color: rgba(39, 39, 39, 0.493);
+    height: 150px;
+    display: flex;
+    color :rgb(190, 3, 3);
+    align-items: center;
+    justify-content: center;
+}

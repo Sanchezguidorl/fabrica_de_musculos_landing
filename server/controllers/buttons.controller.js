@@ -15,7 +15,7 @@ export const createButton= async(req,res)=>{
 
 const textInput=req.body.textInput;
 const urlInput=req.body.urlInput;
-
+console.log(req.body)
 if(!textInput || !urlInput){
     return res.status(400).json();
 }

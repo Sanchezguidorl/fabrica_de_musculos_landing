@@ -22,7 +22,6 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
         const data= await getImages();
         if(getImages){
           setOffers(data);
-        console.log(data)
         }
       } catch (error) {
         console.log("Error al obtener ofertas")
@@ -74,14 +73,23 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
           <button className="modal-close" onClick={onClose}>
             {closeIcon}
           </button>
-{offers &&
-          offers.map((offer, index)=> <Offer
+<>{offers!==null&&
+<>{offers.length===0 ?
+(
+<div className="planes-empty">No existen planes cargados</div>
+)
+:
+<>{        
+   offers.map((offer, index)=> <Offer
             key={offer._id}
             slide={offer.path}
             index={index===offerIndex}
             plan={offer.name}
+            message={offer.message}
           />)
-          }
+  }</>
+  }</>
+      }</>
         </div>
       </div>
     </div>
