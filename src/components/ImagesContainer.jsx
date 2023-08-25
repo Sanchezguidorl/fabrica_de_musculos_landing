@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ImagesContainer() {
   const [miniature, setMiniature] = useState(null);
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState([]);
   const [formLoaded, setFormLoaded] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -170,7 +170,7 @@ function ImagesContainer() {
         </form>
       )}
       <section id="gallery">
-        {images &&
+        {images.length>0 &&
           images.map((image) => (
             <div key={image._id} className="image-gallery">
               <img
