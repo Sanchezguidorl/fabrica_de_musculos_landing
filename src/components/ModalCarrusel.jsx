@@ -82,7 +82,7 @@ const ModalCarrusel = ({ isOpen, onClose }) => {
 <>{        
    offers.map((offer, index)=> <Offer
             key={offer._id}
-            slide={offer.path}
+            slide={`data:image/jpeg;base64,${offer.imageBase64}`}
             index={index===offerIndex}
             plan={offer.name}
             message={offer.message}

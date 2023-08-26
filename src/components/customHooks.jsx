@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const urlBase='https://backend-fabrica-de-musculos.vercel.app';
+
 export const getImages= async()=>{
     try {
-        const images= await axios.get('http://localhost:5000/images');
+        const images= await axios.get(`${urlBase}/images`);
+        console.log(images.data)
         return images.data;
     } catch (error) {
         return error;
@@ -11,7 +14,7 @@ export const getImages= async()=>{
 
 export const deleteImage= async(id)=>{
     try {
-        const deletedImage= await axios.delete(`http://localhost:5000/images/${id}/delete`);
+        const deletedImage= await axios.delete(`${urlBase}/images/${id}/delete`);
         return true;
     } catch (error) {
         return false;
@@ -20,7 +23,7 @@ export const deleteImage= async(id)=>{
 
 export const createImage= async(imageData)=>{
     try {
-        const newImage= await axios.post(`http://localhost:5000/images/add`,imageData,
+        const newImage= await axios.post(`${urlBase}/images/add`,imageData,
         {
             headers: {
               'Content-Type': 'multipart/form-data'
@@ -35,7 +38,7 @@ export const createImage= async(imageData)=>{
 
 export const getButtons= async()=>{
     try {
-        const buttons= await axios.get('http://localhost:5000/buttons');
+        const buttons= await axios.get(`${urlBase}/buttons`);
         return buttons.data;
     } catch (error) {
         throw error;
@@ -44,7 +47,7 @@ export const getButtons= async()=>{
 
 export const deleteButton= async(id)=>{
     try {
-        const deleteButton= await axios.delete(`http://localhost:5000/buttons/delete/${id}`);
+        const deleteButton= await axios.delete(`${urlBase}/buttons/delete/${id}`);
         return true;
     } catch (error) {
         return false;
@@ -53,7 +56,7 @@ export const deleteButton= async(id)=>{
 
 export const createButton= async(buttonData)=>{
     try {
-        const newButton= await axios.post(`http://localhost:5000/buttons/add`,buttonData);
+        const newButton= await axios.post(`${urlBase}/buttons/add`,buttonData);
         return true;
     } catch (error) {
        throw error;

@@ -174,7 +174,7 @@ function ImagesContainer() {
           images.map((image) => (
             <div key={image._id} className="image-gallery">
               <img
-                src={`../../${image.path.replace(/\\/g, "/")}`}
+                src={`data:image/jpeg;base64,${image.imageBase64}`}
                 alt={image.name}
               />
               <i
