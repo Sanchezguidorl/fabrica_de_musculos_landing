@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PlusButton from "./PlusButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import { faShareNodes, faUser } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getButtons } from "./customHooks";
 
 function Header({ openCompartir, updateButtons, existAdmin }) {
@@ -42,6 +42,10 @@ function Header({ openCompartir, updateButtons, existAdmin }) {
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faShareNodes} />
       </button>
+      <Link to={'/admin'} className="adminIcon">
+        {/* Ícono para el botón */}
+        <FontAwesomeIcon icon={faUser} />
+      </Link>
     </header>
   );
 }
