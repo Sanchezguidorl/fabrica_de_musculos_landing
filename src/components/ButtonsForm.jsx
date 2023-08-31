@@ -40,9 +40,10 @@ if(createError){
   const createNewButton = async (data) => {
     try {
       const newButton = await createButton(data);
-      setFormData((prevData)=>({    textInput: "",
-      urlInput: "",}))
-      getData();
+      if(newButton){
+      setFormData({    textInput: "",
+      urlInput: "",})
+      getData();}
     } catch (errorFetch) {
       setCreateError(true);
     }

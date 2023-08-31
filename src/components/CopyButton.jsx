@@ -1,6 +1,6 @@
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 
 function CopyButton() {
   const [isCopied, setIsCopied] = useState(false);
@@ -15,7 +15,7 @@ function CopyButton() {
   }, [isCopied]);
 
   const copy = () => {
-    const link = 'www.instagram.com/fabricademusculos.pfo/';
+    const link = "www.instagram.com/fabricademusculos.pfo/";
     navigator.clipboard.writeText(link);
     setIsCopied(true);
   };
@@ -23,17 +23,14 @@ function CopyButton() {
   return (
     <>
       {/* Mostrar la notificación si el enlace fue copiado */}
-      {isCopied &&
-        <span className='notification-container'>
-          <p className='copy-notification'>El enlace fue copiado</p>
+      {isCopied && (
+        <span className="notification-container">
+          <p className="copy-notification">El enlace fue copiado</p>
         </span>
-      }
+      )}
       {/* Botón de copiar */}
       <i onClick={copy}>
-        <FontAwesomeIcon
-          icon={faCopy}
-          style={{ color: '#3c3c3c' }}
-        />
+        <FontAwesomeIcon icon={faCopy} style={{ color: "#3c3c3c" }} />
       </i>
     </>
   );

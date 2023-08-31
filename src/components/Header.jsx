@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { getButtons } from "./customHooks";
 
-function Header({ openCompartir, updateButtons }) {
+function Header({ openCompartir, updateButtons, existAdmin }) {
   const [menuAdminOpen, setMenuAdminOpen] = useState(false);
   const location = useLocation();
   //Funciónes para desplegar el menú si es el administrador
@@ -32,11 +32,12 @@ function Header({ openCompartir, updateButtons }) {
 
   return (
     <header className="share-header">
+ {existAdmin &&
       <PlusButton
         menuOpen={menuAdminOpen}
         handleHoverOpen={openMenuAdmin}
         handleHoverClose={closeMenuAdmin}
-      />
+      />}
       <button onClick={openCompartir}>
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faShareNodes} />
@@ -48,6 +49,7 @@ function Header({ openCompartir, updateButtons }) {
 Header.propTypes = {
   openCompartir: PropTypes.func.isRequired,
   updateButtons: PropTypes.func.isRequired,
+  existAdmin: PropTypes.string,
 };
 
 export default Header;

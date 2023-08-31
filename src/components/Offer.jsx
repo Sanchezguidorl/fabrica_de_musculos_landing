@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-function Offer({ slide, plan, message, index}) {
+function Offer({ slide, plan, message, index }) {
   const handleLoadImg = () => {
     setTimeout(() => {
       setImgLoaded(true);
@@ -10,7 +10,7 @@ function Offer({ slide, plan, message, index}) {
   const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
-    <div className="img-div" style={{display: index? 'flex' : 'none'}}>
+    <div className="img-div" style={{ display: index ? "flex" : "none" }}>
       {!imgLoaded && (
         <div className="img-loader">
           <span className="loader"></span>

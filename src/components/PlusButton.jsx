@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/PlusButton.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faImages, faTags } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRightFromBracket,
+  faHouse,
+  faImages,
+  faTags,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function PlusButton({ handleHoverOpen, handleHoverClose }) {
+  const [logout, setLogout] = useState(false);
+
+  useEffect(() => {
+    if (logout) {
+      localStorage.removeItem("accessToken");
+    }
+  }, [logout]);
+  const handleLogout = () => {
+    setLogout(true);
+  };
+
   return (
     <div
       id="PlusButton"
       onMouseOver={handleHoverOpen}
       onMouseLeave={handleHoverClose}
     >
-      <Link to={'/buttons'} className="optionsMenu">
+      <Link to={"/buttons"} className="optionsMenu">
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faTags} />
       </Link>
@@ -23,6 +39,10 @@ function PlusButton({ handleHoverOpen, handleHoverClose }) {
         {/* Ícono para el botón */}
         <FontAwesomeIcon icon={faHouse} />
       </Link>
+      <a href="/" onClick={handleLogout} className="optionsMenu">
+        {/* Ícono para el botón */}
+        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+      </a>
       <button>
         {/* Ícono para el botón */}
         <svg width="16" height="16" viewBox="0 0 16 16">

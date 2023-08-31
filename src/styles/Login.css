@@ -1,0 +1,78 @@
+#Login{
+    margin-top: 40px;
+    padding: 24px 16px;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.301);
+    border: 1px solid #ceb02c;
+    max-height: 650px;
+    text-align: center;
+}
+
+.form-login{
+    display: flex;
+    color: #ceb02c;
+flex-direction: column;
+align-items: center;
+}
+
+.form-login legend{
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    margin-bottom: 26px;
+    padding: 0px 30px;
+    border-bottom: 1px solid #ceb02c;
+}
+
+.form-login label{
+    font-size: 20px;
+}
+
+.form-login input, .form-login label{
+    margin-bottom: 8px;
+width: 100%;
+max-width: 400px;
+}
+
+.form-login input[type="text"], .form-login input[type="password"]{
+    background-color: rgba(0, 0, 0, 0.137);
+    padding: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+ .form-login input[type="submit"]{
+    margin-top: 10px;
+    background-color: #ceb02c;
+    padding: 8px;
+    text-align: center;
+    color: #000;
+    max-width: 70%;
+    cursor: pointer;
+}
+.error-input{
+    color: rgb(165, 4, 4);
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.form-login input[type="submit"]:hover{
+filter: brightness(1.2);
+}
+
+.success-login{
+    background-color: rgba(240, 248, 255, 0.342);
+    color: #2ccf26;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 16px;
+    animation:  1s successEnter ease-in;
+}
+
+@keyframes successEnter {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
