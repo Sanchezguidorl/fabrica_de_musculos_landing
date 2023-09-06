@@ -24,7 +24,7 @@ function Offer({ slide, plan, message, index }) {
       />
       <a
         target="blank"
-        href={`https://api.whatsapp.com/send?phone=3517458202&text=${message}`}
+        href={`https://api.whatsapp.com/send?phone=3513172080&text=${message}`}
         className="button-offer"
       >
         Obtenga su plan
