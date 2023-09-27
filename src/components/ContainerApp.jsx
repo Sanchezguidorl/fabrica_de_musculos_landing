@@ -6,7 +6,7 @@ import ModalCompartir from "./ModalCompartir"; // Importar componente Modal
 import icon1 from "../assets/logo.png"; // Importar imagen 1 (logo.png)
 import icon2 from "../assets/logofm.png"; // Importar imagen 2 (logofm.png)
 import ModalCarrusel from "./ModalCarrusel";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ImagesContainer from "./ImagesContainer";
 import ButtonsForm from "./ButtonsForm";
 import Header from "./Header";
@@ -19,7 +19,7 @@ function ContainerApp() {
   const [modalCompartir, setModalCompartir] = useState(false);
   const [anchorMessages, setAnchorMessages] = useState(null);
   const [sessionAdmin, setSessionAdmin] = useState();
-
+  const [showAbout, setShowAbout] = useState(false);
   useEffect(() => {
     if (localStorage.accessToken) {
       setSessionAdmin(localStorage.accessToken);
@@ -50,6 +50,18 @@ function ContainerApp() {
       ) : (
         <div className="allLinks-container">
           {/* Mapear los LinkButton con los anclajes y mensajes */}
+          <div className="" onClick={() => setShowAbout(!showAbout)}>
+            <LinkButton target="self" message={"¿Quiénes somos?"} />
+            <div className={`about-content ${showAbout && "d-block"}`}>
+              <strong>Fábrica de músculos nace en 2019.</strong>
+              <br />
+              Te ofrecemos un equipo de trabajo con el objetivo de ayudarte a
+              lograr tu mejor versión a través de la enseñanza de hábitos
+              alimenticios saludables y acompañamiento de actividad física.
+              Somos especialistas en entrenamiento y nutrición, seleccionamos
+              los métodos fitness más efectivos.
+            </div>
+          </div>
           {anchorMessages &&
             anchorMessages.map((anchor) => (
               <LinkButton
